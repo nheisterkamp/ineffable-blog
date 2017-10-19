@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  api:
+    build: api
+    image: api
+    command: api
+    expose:
+      - "1234"
+
+  gateway:
+    build: gateway
+    image: gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
